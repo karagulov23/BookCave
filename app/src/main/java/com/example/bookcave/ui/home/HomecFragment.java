@@ -1,8 +1,9 @@
 package com.example.bookcave.ui.home;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,41 +17,41 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
-import com.bumptech.glide.Glide;
 import com.denzcoskun.imageslider.ImageSlider;
 import com.denzcoskun.imageslider.models.SlideModel;
-import com.example.bookcave.BookInfoOrder;
+import com.example.bookcave.BookInfo;
 import com.example.bookcave.R;
-import com.example.bookcave.extras.SellingBook;
-import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
-import com.firebase.ui.firestore.FirestoreRecyclerOptions;
+import com.example.bookcave.db.AppDatabase;
+import com.example.bookcave.db.models.Course;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.Query;
-
-import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class HomecFragment extends Fragment {
     private FirebaseFirestore firebaseFirestore;
-    private FirestoreRecyclerAdapter adapter;
+//    private FirestoreRecyclerAdapter adapter;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
         View root = inflater.inflate(R.layout.fragment_homec, container, false);
-        firebaseFirestore=FirebaseFirestore.getInstance();
+        firebaseFirestore = FirebaseFirestore.getInstance();
         RecyclerView recyler_home_page_books = root.findViewById(R.id.recyler_home_page_books);
         final SwipeRefreshLayout pullToRefresh = root.findViewById(R.id.pullToRefresh);
-        showNewAvailables();
+
+        List<Course> courses = AppDatabase.getInstance(getContext()).dbDao().getAllCourses();
+        Log.e("AAA", "lectures: " + courses.size());
+
+        CoursesAdapter adapter = new CoursesAdapter(courses, getContext().getPackageName());
+
         recyler_home_page_books.setHasFixedSize(true);
         recyler_home_page_books.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyler_home_page_books.setAdapter(adapter);
         //End of adapter code
 
-        ImageSlider slider=root.findViewById(R.id.slider);
-        List<SlideModel> sliderModels=new ArrayList<>();
+        ImageSlider slider = root.findViewById(R.id.slider);
+        List<SlideModel> sliderModels = new ArrayList<>();
         sliderModels.add(new SlideModel("https://i.imgur.com/PObprBN.jpg"));
         sliderModels.add(new SlideModel("https://i.imgur.com/PObprBN.jpg"));
         slider.setImageList(sliderModels, true);
@@ -66,7 +67,10 @@ public class HomecFragment extends Fragment {
     }
 
     private void showNewAvailables() {
-        Query query = firebaseFirestore.collection("SellingList");
+
+
+
+    /*    Query query = firebaseFirestore.collection("SellingList");
 
         FirestoreRecyclerOptions<SellingBook> options = new FirestoreRecyclerOptions.Builder<SellingBook>()
                 .setQuery(query, SellingBook.class)
@@ -117,46 +121,105 @@ public class HomecFragment extends Fragment {
                 });
 
             }
-        };
+        };*/
+    }
+
+    private class CoursesAdapter extends RecyclerView.Adapter<SellingBooksViewHolder> {
+
+        private List<Course> courses;
+        private String packageName;
+
+        CoursesAdapter(List<Course> items, String packageName) {
+            courses = items;
+            this.packageName = packageName;
+        }
+
+        @NonNull
+        @Override
+        public SellingBooksViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+            View view = LayoutInflater.from(parent.getContext())
+                    .inflate(R.layout.row_book_list, parent, false);
+            return new SellingBooksViewHolder(view);
+        }
+
+        @Override
+        public void onBindViewHolder(@NonNull SellingBooksViewHolder viewHolder, int position) {
+            final Course course = courses.get(position);
+
+            viewHolder.row_price.setText(course.getUniversity());
+            viewHolder.row_quantity.setText(course.getCategory());
+            viewHolder.row_title.setText(course.getName());
+            viewHolder.row_author.setText(course.getDescription());
+            //load image from internet and set it into imageView using Glide
+
+            String uri = "@drawable/" + course.getImgName();  // where myresource (without the extension) is the file
+            int imageResource = getResources().getIdentifier(uri, null, packageName);
+            Drawable drawable = getResources().getDrawable(imageResource);
+            viewHolder.row_thumbnail.setImageDrawable(drawable);
+
+            viewHolder.container.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent i = new Intent(getActivity(), BookInfo.class);
+                    i.putExtra("course_id", course.getId());
+
+                    startActivity(i);
+                }
+            });
+
+//            Glide.with(requireActivity()).load(model.getThumbnail()).placeholder(R.drawable.loading_shape).dontAnimate().into(viewHolder.row_thumbnail);
+        }
+
+        @Override
+        public int getItemCount() {
+            return courses.size();
+        }
     }
 
     private static class SellingBooksViewHolder extends RecyclerView.ViewHolder {
         View mView;
         ImageView row_thumbnail;
         LinearLayout container;
-        TextView row_title,row_author,row_price,row_quantity;
+        TextView row_title;
+        TextView row_author;
+        TextView row_price;
+        TextView row_quantity;
 
         SellingBooksViewHolder(@NonNull View itemView) {
             super(itemView);
             mView = itemView;
-            container=mView.findViewById(R.id.container);
-            row_thumbnail= mView.findViewById(R.id.row_thumbnail);
-            row_title=mView.findViewById(R.id.row_title);
-            row_author=mView.findViewById(R.id.row_author);
-            row_price=mView.findViewById(R.id.row_price);
-            row_quantity=mView.findViewById(R.id.row_quantity);
+            container = mView.findViewById(R.id.container);
+            row_thumbnail = mView.findViewById(R.id.row_thumbnail);
+            row_title = mView.findViewById(R.id.row_title);
+            row_author = mView.findViewById(R.id.row_author);
+            row_price = mView.findViewById(R.id.row_price);
+            row_quantity = mView.findViewById(R.id.row_quantity);
 
         }
     }
+
     @Override
-    public void onStart(){
+    public void onStart() {
         super.onStart();
-        adapter.startListening();
+//        adapter.startListening();
     }
+
     @Override
-    public void onStop(){
+    public void onStop() {
         super.onStop();
-        adapter.stopListening();
+//        adapter.stopListening();
     }
+
     @Override
-    public void onResume(){
+    public void onResume() {
         super.onResume();
-        adapter.notifyDataSetChanged();
+//        adapter.notifyDataSetChanged();
     }
+
     @Override
-    public void onPause(){
+    public void onPause() {
         super.onPause();
-        adapter.stopListening();
+//        adapter.stopListening();
     }
 
 }
