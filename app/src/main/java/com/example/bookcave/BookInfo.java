@@ -20,6 +20,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.bookcave.db.AppDatabase;
 import com.example.bookcave.db.models.Course;
 import com.example.bookcave.db.models.Lecture;
+import com.example.bookcave.ui.home.PdfViewer;
 
 import java.util.List;
 
@@ -33,6 +34,9 @@ public class BookInfo extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
+
         setContentView(R.layout.activity_book_info);
 
         bthumbnail = findViewById(R.id.bthumbnail);
@@ -46,6 +50,9 @@ public class BookInfo extends AppCompatActivity {
         final Integer courseId = intent.getIntExtra("course_id", 0);
 
         Course course = AppDatabase.getInstance(getApplicationContext()).dbDao().getCourseById(courseId);
+
+        ((AppCompatActivity)this).getSupportActionBar().setTitle(course.getName());
+
         List<Lecture> lectures = AppDatabase.getInstance(getApplicationContext()).dbDao().getLectures(courseId);
 
 //        bshow.setOnClickListener(new View.OnClickListener() {
@@ -118,10 +125,11 @@ public class BookInfo extends AppCompatActivity {
             viewHolder.container.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-//                    Intent i = new Intent(context, BookInfo.class);
-//                    i.putExtra("course_id", lecture.getId());
-//
-//                    startActivity(i);
+                    Intent i = new Intent(context, PdfViewer.class);
+                    i.putExtra("title", lecture.getName());
+                    i.putExtra("file_name", lecture.getFileName());
+
+                    startActivity(i);
                 }
             });
         }

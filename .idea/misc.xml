@@ -5,6 +5,8 @@
       <map>
         <entry key="..\:/BookCave/app/src/main/res/layout/activity_book_info.xml" value="0.22826086956521738" />
         <entry key="..\:/BookCave/app/src/main/res/layout/activity_book_info_order.xml" value="0.22826086956521738" />
+        <entry key="..\:/BookCave/app/src/main/res/layout/activity_main.xml" value="0.20885416666666667" />
+        <entry key="..\:/BookCave/app/src/main/res/layout/activity_pdf_viewer.xml" value="0.22552083333333334" />
         <entry key="..\:/BookCave/app/src/main/res/layout/fragment_homec.xml" value="0.19322916666666667" />
         <entry key="..\:/BookCave/app/src/main/res/layout/row_book_list.xml" value="0.22826086956521738" />
         <entry key="..\:/BookCave/app/src/main/res/layout/view_holder_lecture.xml" value="0.19322916666666667" />

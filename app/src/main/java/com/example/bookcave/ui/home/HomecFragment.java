@@ -52,8 +52,9 @@ public class HomecFragment extends Fragment {
 
         ImageSlider slider = root.findViewById(R.id.slider);
         List<SlideModel> sliderModels = new ArrayList<>();
-        sliderModels.add(new SlideModel("https://i.imgur.com/PObprBN.jpg"));
-        sliderModels.add(new SlideModel("https://i.imgur.com/PObprBN.jpg"));
+//        sliderModels.add(new SlideModel("https://i.imgur.com/PObprBN.jpg"));
+//        sliderModels.add(new SlideModel("https://i.imgur.com/PObprBN.jpg"));
+        sliderModels.add(new SlideModel(R.drawable.education_learning ));
         slider.setImageList(sliderModels, true);
 
         pullToRefresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
