@@ -1,0 +1,136 @@
+<resources>
+    <string name="app_name">Открытый образовательный ресурс</string>
+    <string name="welcome">Добро пожаловать</string>
+    <!--Log in-->
+    <string name="login">Войти</string>
+    <string name="log_out">Выйти</string>
+    <string name="email">Email</string>
+    <string name="password">Пароль</string>
+    <string name="forget_pass">Забыли пароль?</string>
+    <string name="create_seller_account">Зарегестрироваться как преподователь</string>
+    <!--Reset pass -->
+    <string name="have_account">Уже есть аккаунт? Войдите.</string>
+    <string name="reset_pass">Сбросить пароль</string>
+    <string name="receive_link">Получить ссылку по электронной почте</string>
+    <!--Create Account-->
+    <string name="create_n_account">Создать новый аккаунт</string>
+    <string name="create_n_s_account">Создать новый аккаунт преподователя</string>
+    <string name="create_account">Создать аккаунт</string>
+    <string name="owner_f_name">Owner\'s Имя</string>
+    <string name="owner_l_name">Owner\'s Фамилия</string>
+    <string name="f_name">Имя</string>
+    <string name="l_name">Фамилия</string>
+    <string name="ph_no">Телефон</string>
+    <string name="owner_ph_no">Owner\'s телефон</string>
+    <string name="for_order">Для заказа:</string>
+    <string name="for_owner">Информация о владельце:</string>
+    <string name="shop_name">Название учебного заведения</string>
+    <string name="GST_no">GST номер</string>
+    <string name="for_company">Company info:</string>
+    <string name="address">Адрес</string>
+    <string name="pincode">Пинкод</string>
+    <!--Home page-->
+    <string name="title_activity_home_customer">Главная страница Customer</string>
+    <string name="title_home">Главная</string>
+    <string name="title_search">Поиск</string>
+    <string name="title_profile">Профиль</string>
+    <!--Profile-->
+    <string name="name">Мое имя</string>
+    <string name="profile">Мой профиль</string>
+    <string name="favourites">Избранное</string>
+    <string name="my_cart">Моя корзина</string>
+    <string name="order_history">История заказов</string>
+    <string name="payment_history">История платежей</string>
+    <string name="help">Помощь</string>
+    <string name="contact_dev">Контакты с разработчиками</string>
+    <string name="about">О нашем приложении</string>
+    <string name="design">назначение разработки</string>
+    <!--contact dev-->
+    <string name="tellproblem">Расскажите о ваших проблемах</string>
+    <string name="sevofproblem">Серьезность проблемы</string>
+    <string name="detailaboutproblem">Подробно о проблеме, с которой вы столкнулись:</string>
+    <string name="sendmail">Отправить почту</string>
+    <string name="title_activity_home_seller">Главная Seller</string>
+    <string name="navigation_drawer_open">Откройте навигационный ящик</string>
+    <string name="navigation_drawer_close">Закройте навигационный ящик</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">Успешно вошли в систему</string>
+    <string name="nav_header_desc">Навигационный заголовок</string>
+    <string name="action_settings">Настройки</string>
+
+    <string name="menu_home">Главная</string>
+    <string name="menu_gallery">Галерея</string>
+    <string name="menu_slideshow">Слайдшоу</string>
+    <string name="menu_addbook">Добавить книгу</string>
+    <string name="menu_removebooks">Удалить книгу</string>
+
+    <string name="home_second">Home Second</string>
+    <string name="menu_booklist">Список материалов</string>
+    <string name="menu_update_order">Обновить статус заказа</string>
+    <string name="menu_info">Моя информация</string>
+    <string name="menu_profile">Мой профиль</string>
+    <string name="menu_options">Другое</string>
+    <string name="menu_setting">Настройки</string>
+    <string name="menu_feedback">Сообщить о проблеме/Связаться с нами</string>
+    <string name="menu_about">О нашем приложении</string>
+    <string name="menu_history">История платежей</string>
+    <string name="menu_current_order">Все заказы</string>
+    <string name="user">Пользователь</string>
+    <string name="searchhere">Поиск книги для добавления</string>
+
+    <string name="Failed_to_Load_data">Пожалуйста, проверьте ваше подключение к Интернету</string>
+    <string name="NO_RESULT">Нет подходящего результата</string>
+    <!--ABOUT-->
+    <string name="about_para1"> Приложение призвано внести доступность в быстрый обмен образовательными ресурсами между студентами.</string>
+    <string name="about_para10">Так же приложение служит для повышения уровня образования.</string>
+    <string name="about_para11">Можно найти много интересного.</string>
+
+    <!--UPDATE INFO-->
+    <string name="update_det">Обновить подробности</string>
+    <string name="verifyemail">Подтвердить свою электронную почту</string>
+    <string name="updansave">Обновить и Сохранить изменения</string>
+    <string name="addbook">Добавить книгу в список</string>
+    <string name="quan_ava">Количество, имеющееся в вашем магазине</string>
+    <string name="urprice">Ваша цена продажи</string>
+    <string name="rentprice">Стоимость аренды</string>
+    <string name="delicharges">Стоимость доставки</string>
+    <!--SEARCH BOOK-->
+    <string name="search_ph">Поиск книг по названию, автору</string>
+    <!--VIEW BOOK-->
+    <string name="buybook">Купить книгу</string>
+    <string name="rentbook">Арендовать книгу</string>
+    <string name="read_preview">Читать превью книги</string>
+    <string name="conti">Продолжить</string>
+    <string name="placeorder">Разместить заказ</string>
+    <string name="pinfo">Вы должны будете заплатить деньги и другой документ (если потребуется) при доставке. Вы можете оплатить наличными или UPI, картой или любым другим онлайн способом.</string>
+    <string name="addadd">Введите новый адрес</string>
+    <string name="order_summary">Резюме заказа</string>
+    <string name="change_address_for_this_order">Изменить адрес для данного заказа</string>
+    <string name="book_image">Обложка книги</string>
+    <string name="authname">Имя автора</string>
+    <string name="genre">Категория</string>
+    <string name="price_details">Детали цены</string>
+    <string name="price_1_item">Цена (1 шт.)</string>
+    <string name="delivery_charges">Стоимость доставки</string>
+    <string name="total_amount">Общая сумма</string>
+    <string name="payment_details">Платежные реквизиты</string>
+    <string name="cash_on_delivery">Наложенный платеж</string>
+    <string name="final_amount_to_pay">Окончательная сумма к оплате</string>
+    <string name="use_this_address_for_this_order">Используйте этот адрес для данного заказа</string>
+    <string name="go_to_home">Перейти на главную страницу</string>
+    <string name="order_placed">Заказ сделан!</string>
+    <string name="click_on_address_to_change_address_for_this_order">(Нажмите на адрес, чтобы изменить адрес и пинкод для данного заказа)</string>
+    <string name="orders_recevied">Полученные заказы</string>
+    <string name="profit_earned">Полученная прибыль*</string>
+    <string name="potential_profit">Потенциальная прибыль</string>
+    <string name="descripforOTP">Передайте указанный ниже секретный OTP курьеру для аутентификации и безопасной доставки заказа.</string>
+    <string name="select_the_number_of_days_for_renting">Выберите количество дней аренды: </string>
+    <string name="verification_documents_necessary">Необходимые проверочные документы</string>
+    <string name="any_valid_identity_proof_like_aadhar_card_pan_card_license_card_voting_card_would_be_considered">Рассматривается любое действительное удостоверение личности, например, карта Aadhar, PAN-карта, лицензионная карточка, избирательная карточка.</string>
+    <string name="any_valid_identity_proof_like_electricity_bill_rent_agreement_aadhar_card_would_be_considered">Любое действительное удостоверение личности, например, счет за электроэнергию, договор аренды, карта Aadhar, будет рассмотрено.</string>
+    <string name="updatenview">Обновление/просмотр деталей</string>
+    <string name="recevied">Получено</string>
+    <string name="tobereceived">быть полученным</string>
+    <string name="rejectedorder">Заказ отклонен</string>
+
+</resources>
